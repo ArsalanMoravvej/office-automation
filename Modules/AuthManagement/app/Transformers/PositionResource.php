@@ -18,7 +18,7 @@ class PositionResource extends JsonResource
             "user_id" => $this->user_id,
             "title" => $this->title,
             "description" => $this->description,
-            "is_active" => $this->active,
+            "is_active" => $this->is_active,
             'user' => new UserResource(($this->whenLoaded('user'))),
         ];
     }

@@ -12,6 +12,6 @@ class PositionSeeder extends Seeder
      */
     public function run(): void
     {
-        Position::factory()->count(10)->repeatedUsers()->create();
+        Position::factory()->count(50)->repeatedUsers()->create();
     }
 }

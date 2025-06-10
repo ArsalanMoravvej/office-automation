@@ -14,10 +14,13 @@ return new class extends Migration
     {
         Schema::create('positions', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(User::class)
+                ->nullable()
+                ->constrained()
+                ->cascadeOnDelete();
             $table->string('title', 50);
             $table->string('description', 500)->nullable();
-            $table->boolean('active')->default(false);
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }

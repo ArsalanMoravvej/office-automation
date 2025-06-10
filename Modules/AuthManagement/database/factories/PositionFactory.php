@@ -21,7 +21,7 @@ class PositionFactory extends Factory
             'user_id' => User::factory(),
             'title' => fake()->jobTitle(),
             'description' => fake()->optional(0.4)->sentence(3, true),
-            'active' => fake()->boolean()
+            'is_active' => fake()->boolean()
         ];
     }
 
