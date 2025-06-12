@@ -51,7 +51,7 @@ class RoleController extends Controller
     {
         $role = QueryBuilder::for(Role::query())
             ->allowedIncludes(['positions.user', 'permissions'])
-            ->find($id);
+            ->findOrFail($id);
         return new RoleResource($role);
     }
 
@@ -60,9 +60,8 @@ class RoleController extends Controller
      */
     public function update(Role $role, RoleUpdateRequest $request): RoleResource
     {
-        //
-
-        return response()->json([]);
+        $role->update($request->validated());
+        return new RoleResource($role);
     }
 
     /**

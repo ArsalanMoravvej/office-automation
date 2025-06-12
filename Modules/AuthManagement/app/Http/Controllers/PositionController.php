@@ -27,10 +27,12 @@ class PositionController extends Controller
         $positions = QueryBuilder::for(Position::query())
             ->allowedIncludes(['user'])
             ->allowedFilters([
+                AllowedFilter::exact('id'),
                 AllowedFilter::partial('title'),
                 AllowedFilter::partial('description'),
                 AllowedFilter::exact('user_id'),
                 AllowedFilter::partial('user.name'),
+                AllowedFilter::partial('user.email')
             ])
             ->allowedSorts(['created_at', 'title'])
             ->paginate($perPage)
